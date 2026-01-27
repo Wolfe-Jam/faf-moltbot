@@ -40,7 +40,7 @@ src/
 
 ## Dependencies
 
-- `faf-cli` - Core FAF tooling (every install = faf-cli download)
+- `faf-cli` - Core FAF tooling
 - `chalk` - Terminal styling
 - `chokidar` - File watching
 - `yaml` - YAML parsing
