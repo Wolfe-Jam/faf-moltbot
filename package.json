@@ -1,0 +1,47 @@
+{
+  "name": "faf-moltbot",
+  "version": "1.0.0",
+  "description": "Portable souls for Moltbot - IANA-registered context format integration",
+  "main": "dist/src/index.js",
+  "bin": {
+    "faf-moltbot": "./dist/src/cli.js"
+  },
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "start": "node dist/cli.js",
+    "test": "tsc && node dist/tests/wjttc.test.js",
+    "test:wjttc": "node dist/tests/wjttc.test.js",
+    "prepublishOnly": "npm run build && npm run test"
+  },
+  "keywords": [
+    "moltbot",
+    "clawdbot",
+    "faf",
+    "ai-context",
+    "soul",
+    "portable",
+    "iana",
+    "mcp"
+  ],
+  "author": "James Wolfe Harrison",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Wolfe-Jam/faf-moltbot"
+  },
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "chokidar": "^3.5.3",
+    "faf-cli": "^4.0.0",
+    "yaml": "^2.3.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "typescript": "^5.3.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

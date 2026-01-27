@@ -1,0 +1,60 @@
+project:
+  name: faf-moltbot
+  goal: Portable souls for Moltbot - IANA-registered context format integration
+  type: npm-package
+  version: 1.0.0
+  main_language: typescript
+human_context:
+  who: Moltbot users (63k+) wanting portable AI context
+  what: Bridge between project.faf and SOUL.md
+  why: SOUL.md trapped in one workspace - FAF makes it universal
+  where: npm, Moltbot workspaces, Claude, Cursor, any MCP tool
+  when: v1.0.0 - production ready
+  how: npm install -g faf-moltbot && faf-moltbot init
+stack:
+  language: typescript
+  runtime: node
+  package_manager: npm
+  dependencies:
+    - faf-cli
+    - chalk
+    - chokidar
+    - yaml
+  targetUser: developers
+  coreProblem: understanding project
+  missionPurpose: project documentation
+  packageManager: npm/yarn/pnpm
+  mainLanguage: JavaScript/TypeScript
+architecture:
+  pattern: CLI tool
+  modules:
+    - cli: Command-line interface (init, sync, watch, status)
+    - reader: Parse project.faf YAML files
+    - generator: Render SOUL.md from FAF format
+    - sync: File sync engine with watch mode
+persona:
+  voice: Professional, helpful
+  tone: Direct, no fluff
+  traits:
+    - Focused on portability
+    - IANA-registered standards
+    - Zero drift philosophy
+links:
+  npm: https://www.npmjs.com/package/faf-moltbot
+  github: https://github.com/Wolfe-Jam/faf-moltbot
+  faf: https://faf.one
+  moltbot: https://github.com/moltbot/moltbot
+generated: 2026-01-27T14:07:26.033Z
+author: wolfejam
+stack_signature: typescript-nodejs-javascript
+detected_frameworks:
+  - Claude Code
+  - Node.js
+  - JavaScript
+  - TypeScript
+  - npm
+turbo_cat_intelligence: 410
+stats:
+  best_auto_time: 0.5
+  last_auto_time: 0.5
+  times_run: 1

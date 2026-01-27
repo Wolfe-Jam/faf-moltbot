@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>One Soul, Many Renderings | FAF</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      background: #0a0a0a;
+      padding: 2rem;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .diagram-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 3rem;
+      background: #1a1a1a;
+      border-radius: 20px;
+      border: 1px solid #333;
+    }
+
+    .diagram-title {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .diagram-title h1 {
+      font-size: 1.8rem;
+      color: #f5f5f5;
+      margin-bottom: 0.5rem;
+    }
+
+    .diagram-title p {
+      color: #888;
+      font-size: 0.95rem;
+    }
+
+    /* Source of Truth - Top */
+    .source-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+
+    .source-box {
+      background: linear-gradient(135deg, #16a34a 0%, #22c55e 100%);
+      color: white;
+      padding: 1.5rem 3rem;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 8px 32px rgba(22, 163, 74, 0.3);
+    }
+
+    .source-box .file-name {
+      font-family: 'SF Mono', 'Consolas', monospace;
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .source-box .label {
+      font-size: 0.85rem;
+      opacity: 0.9;
+    }
+
+    .iana-badge {
+      display: inline-block;
+      background: #0a0a0a;
+      color: #00D4D4;
+      padding: 0.35rem 0.8rem;
+      border-radius: 6px;
+      font-size: 0.7rem;
+      font-family: 'SF Mono', monospace;
+      margin-top: 0.75rem;
+      border: 1px solid #00D4D4;
+    }
+
+    /* Render Arrow */
+    .render-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 1.5rem 0;
+    }
+
+    .render-arrow {
+      width: 3px;
+      height: 40px;
+      background: linear-gradient(to bottom, #22c55e, #00D4D4);
+      border-radius: 2px;
+    }
+
+    .render-label {
+      background: #0a0a0a;
+      color: #00D4D4;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      border: 1px solid #333;
+      margin: 0.75rem 0;
+    }
+
+    .render-arrow-down {
+      color: #00D4D4;
+      font-size: 1.5rem;
+    }
+
+    /* Big Boys - Renderings */
+    .renderings-row {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .rendering-card {
+      background: #0a0a0a;
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      text-align: center;
+      min-width: 140px;
+      border: 1px solid #333;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .rendering-card:hover {
+      transform: translateY(-2px);
+    }
+
+    /* Individual tool colors */
+    .rendering-card.clawdbot {
+      border-color: #ef4444;
+    }
+    .rendering-card.clawdbot .tool-name {
+      color: #ef4444;
+    }
+
+    .rendering-card.claude {
+      border-color: #d97706;
+    }
+    .rendering-card.claude .tool-name {
+      color: #f59e0b;
+    }
+
+    .rendering-card.gemini {
+      border-color: #3b82f6;
+    }
+    .rendering-card.gemini .tool-name {
+      color: #3b82f6;
+    }
+
+    .rendering-card.cursor {
+      border-color: #059669;
+    }
+    .rendering-card.cursor .tool-name {
+      color: #10b981;
+    }
+
+    .rendering-card .file-output {
+      font-family: 'SF Mono', monospace;
+      font-size: 0.9rem;
+      color: #f5f5f5;
+      margin-bottom: 0.5rem;
+    }
+
+    .rendering-card .tool-name {
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .rendering-card .stars {
+      font-size: 0.7rem;
+      color: #666;
+      margin-top: 0.35rem;
+    }
+
+    /* Footer */
+    .diagram-footer {
+      text-align: center;
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #333;
+    }
+
+    .footer-text {
+      color: #4ade80;
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-subtext {
+      color: #666;
+      font-size: 0.8rem;
+    }
+
+    .footer-subtext a {
+      color: #FF6B35;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="diagram-container">
+    <div class="diagram-title">
+      <h1>One Soul, Many Renderings</h1>
+      <p>Single source of truth, rendered on-demand for any tool</p>
+    </div>
+
+    <!-- Source of Truth -->
+    <div class="source-container">
+      <div class="source-box">
+        <div class="file-name">project.faf</div>
+        <div class="label">Your Soul (Source of Truth)</div>
+        <div class="iana-badge">IANA: application/vnd.faf+yaml</div>
+      </div>
+    </div>
+
+    <!-- Render Arrow -->
+    <div class="render-section">
+      <div class="render-arrow"></div>
+      <div class="render-label">Rendered On-Demand</div>
+      <div class="render-arrow-down">▼</div>
+    </div>
+
+    <!-- The Big Boys -->
+    <div class="renderings-row">
+      <div class="rendering-card clawdbot">
+        <div class="file-output">SOUL.md</div>
+        <div class="tool-name">ClawdBot</div>
+        <div class="stars">58k stars</div>
+      </div>
+
+      <div class="rendering-card claude">
+        <div class="file-output">CLAUDE.md</div>
+        <div class="tool-name">Claude</div>
+        <div class="stars">Anthropic</div>
+      </div>
+
+      <div class="rendering-card gemini">
+        <div class="file-output">GEMINI.md</div>
+        <div class="tool-name">Gemini</div>
+        <div class="stars">Google</div>
+      </div>
+
+      <div class="rendering-card cursor">
+        <div class="file-output">native</div>
+        <div class="tool-name">Cursor</div>
+        <div class="stars">VS Code</div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="diagram-footer">
+      <div class="footer-text">Edit once. Context everywhere.</div>
+      <div class="footer-subtext">Same soul. Zero drift. Universal. | <a href="https://faf.one">faf.one</a></div>
+    </div>
+  </div>
+</body>
+</html>
